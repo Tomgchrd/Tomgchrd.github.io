@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<!--
+Tom Guichard
+-->
+<html lang="fr">
+    <head>
+        <title id="page-title">ePortfolio Tom Guichard</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <style>
+            /* Styles spécifiques pour le carrousel d'images des projets */
+            .project-carousel {
+                position: relative;
+                overflow: hidden;
+                border-radius: 4px;
+                margin-bottom: 1em;
+                background: #000;
+            }
+            .carousel-images {
+                display: flex;
+                transition: transform 0.3s ease-in-out;
+                width: 100%;
+            }
+            .carousel-images img {
+                width: 100%;
+                flex-shrink: 0;
+                object-fit: cover;
+                height: 220px;
+                display: block;
+            }
+            .carousel-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                border: none;
+                padding: 6px 10px;
+                cursor: pointer;
+                border-radius: 50%;
+                font-size: 14px;
+                transition: background 0.2s;
+                z-index: 10;
+            }
+            .carousel-btn:hover {
+                background: rgba(0, 0, 0, 0.85);
+            }
+            .carousel-prev { left: 10px; }
+            .carousel-next { right: 10px; }
+
+            /* Style moderne et épuré pour le bouton de langue */
+            .lang-switch-btn {
+                position: fixed !important;
+                top: 20px !important;
+                right: 20px !important;
+                z-index: 999999 !important;
+                background: rgba(255, 255, 255, 0.95) !important;
+                color: #2e3842 !important;
+                border: 1px solid rgba(0, 0, 0, 0.1) !important;
+                padding: 10px 18px !important;
+                border-radius: 30px !important;
+                cursor: pointer !important;
+                font-size: 0.85em !important;
+                font-weight: 600 !important;
+                letter-spacing: 0.5px !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+            }
+            .lang-switch-btn:hover {
+                background: #ffffff !important;
+                color: #111111 !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+                border-color: #48a9a6 !important;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner" style="text-align: center;">
+            
+            <!-- Illustration centrée -->
+            <a href="#" class="image avatar" style="display: inline-block; margin: 0 auto 1.2em auto; width: 110px; height: 110px;">
+                <img src="images/avatar.jpg" alt="Tom Guichard" style="border-radius: 100%; width: 100%; height: 100%; object-fit: cover;" />
+            </a>
+
+            <!-- Titre -->
+            <h1 style="font-size: 1.5em !important; line-height: 1.0 !important; margin-bottom: 0.6em !important; color: #ffffff;">
+                <strong data-fr="Bienvenue sur mon <br />e-portfolio !" data-en="Welcome to my <br />e-portfolio !">Bienvenue sur mon <br />e-portfolio !</strong>
+            </h1>
+
+            <!-- Description -->
+            <p style="font-size: 0.95em; line-height: 1.5; margin-bottom: 2em; color: rgba(255, 255, 255, 0.85);" data-fr="Je suis Tom, élève-ingénieur en sciences numériques. Retrouvez ici mes projets, réalisations et compétences." data-en="I am Tom, a digital sciences engineering student. Find here my projects, achievements and skills.">
+                Je suis Tom, élève-ingénieur en sciences numériques. Retrouvez ici mes projets, réalisations et compétences.
+            </p>
+            
+            <!-- Sommaire / Menu de navigation -->
+            <nav id="nav">
+                <ul style="list-style: none; padding-left: 0; text-align: center;">
+                    <li><a href="#welcome" data-fr="Présentation" data-en="Home">Présentation</a></li>
+                    <li><a href="#academics" data-fr="Parcours Académique" data-en="Academic Background">Parcours Académique</a></li>
+                    <li><a href="#skills" data-fr="Compétences & Outils" data-en="Skills & Tools">Compétences & Outils</a></li>
+                    <li><a href="#projects" data-fr="Réalisations & Projets" data-en="Projects & Works">Réalisations & Projets</a></li>
+                    <li><a href="#mobility" data-fr="Mobilité Internationale" data-en="International Mobility">Mobilité Internationale</a></li>
+                    <li><a href="#sustainability" data-fr="Engagement & Éco-responsabilité" data-en="Sustainability & Civic">Engagement & Éco-responsabilité</a></li>
+                    <li><a href="#sports" data-fr="Sport & Activités" data-en="Sports & Activities">Sport & Activités</a></li>
+                    <li><a href="#career" data-fr="Projet Professionnel" data-en="Career Development">Projet Professionnel</a></li>
+                    <li><a href="#cv" data-fr="CV" data-en="Resume">CV</a></li>
+                    <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <!-- Main -->
+            <div id="main">
+
+                <!-- Bouton de changement de langue (sans drapeau) -->
+                <button id="lang-toggle" class="lang-switch-btn" onclick="toggleLanguage()">English</button>
+
+                <!-- 1. Présentation -->
+                    <section id="welcome">
+                        <header class="major">
+                            <h2 data-fr="Vers la cybersécurité,<br />à travers mon parcours." data-en="Towards cybersecurity,<br />through my journey.">Vers la cybersécurité,<br />
+                            à travers mon parcours.</h2>
+                        </header>
+                        <p data-fr="Élève-ingénieur en sciences numériques à l'ENSEEIHT, passionné par l'informatique et l'électronique, je me dirige vers la cybersécurité. J'aime concevoir des solutions techniques de A à Z. Retrouvez ici un aperçu de mon parcours, de mes compétences et des projets menés à bien." data-en="Digital sciences engineering student at ENSEEIHT, passionate about computer science and electronics, I am heading towards cybersecurity. I love designing technical solutions from scratch. Here is an overview of my background, skills, and successfully completed projects.">Élève-ingénieur en sciences numériques à l'ENSEEIHT, passionné par l'informatique et l'électronique, je me dirige vers la cybersécurité. J'aime concevoir des solutions techniques de A à Z. Retrouvez ici un aperçu de mon parcours, de mes compétences et des projets menés à bien.</p>
+                    </section>
+
+                <!-- 2. Parcours Académique -->
+                    <section id="academics">
+                        <h2 data-fr="Parcours Académique" data-en="Academic Background">Parcours Académique</h2>
+                        <p data-fr="Formation scientifique et cursus d'ingénieur en sciences numériques." data-en="Scientific training and engineering curriculum in digital sciences.">Formation scientifique et cursus d'ingénieur en sciences numériques.</p>
+                        <ul style="margin-bottom: 2em;">
+                            <li style="margin-bottom: 0.8em;">
+                                <strong>ENSEEIHT (Toulouse) :</strong> <span data-fr="École d'ingénieurs — Spécialité <em>Sciences du Numérique</em> (en cours)." data-en="Engineering school — <em>Digital Sciences</em> specialty (ongoing).">École d'ingénieurs — Spécialité <em>Sciences du Numérique</em> (en cours).</span>
+                            </li>
+                            <li style="margin-bottom: 0.8em;">
+                                <strong>Lycée Saliège (Balma) :</strong> <span data-fr="Deux années de Classes Préparatoires aux Grandes Écoles (CPGE) — Filière <em>PCSI / PSI</em>." data-en="Two years of Preparatory Classes for Grandes Écoles (CPGE) — <em>PCSI / PSI</em> track.">Deux années de Classes Préparatoires aux Grandes Écoles (CPGE) — Filière <em>PCSI / PSI</em>.</span>
+                            </li>
+                            <li>
+                                <strong>Lycée Saint-Joseph (Périgueux) :</strong> <span data-fr="Baccalauréat Général — Spécialités <em>Mathématiques</em>, <em>Physique-Chimie</em> et option <em>Mathématiques Expertes</em>." data-en="General Baccalaureate — Specialisms in <em>Mathematics</em>, <em>Physics-Chemistry</em> and <em>Expert Mathematics</em> option.">Baccalauréat Général — Spécialités <em>Mathématiques</em>, <em>Physique-Chimie</em> et option <em>Mathématiques Expertes</em>.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                <!-- 3. Compétences & Outils -->
+                    <section id="skills">
+                        <h2 data-fr="Compétences & Outils" data-en="Skills & Tools">Compétences & Outils</h2>
+                        <p data-fr="Environnements de développement, systèmes d'exploitation et qualités personnelles." data-en="Development environments, operating systems, and personal qualities.">Environnements de développement, systèmes d'exploitation et qualités personnelles.</p>
+                        
+                        <div class="row" style="margin-bottom: 2.5em;">
+                            <!-- Colonne 1 : Langages et Logiciels -->
+                            <div class="col-4 col-12-small">
+                                <h4 data-fr="Langages & Logiciels" data-en="Languages & Software">Langages & Logiciels</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                                    <div title="C" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/C.png.jpg" alt="C" style="width: 24px; height: 24px; display: block;" />
+                                    </div>
+                                    <div title="Ada" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/Ada.png" alt="Ada" style="width: 24px; height: 24px; display: block;" />
+                                    </div>
+                                    <div title="Python" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/Python.png" alt="Python" style="width: 24px; height: 24px; display: block;" />
+                                    </div>
+                                    <div title="Matlab" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/Matlab.png" alt="Matlab" style="width: 24px; height: 24px; display: block;" />
+                                    </div>
+                                    <div title="SolidWorks" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/images.jpg" alt="SolidWorks" style="width: 24px; height: 24px; display: block;" />
+                                    </div>
+                                    <div title="Cura" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/Cura.png" alt="Cura" style="width: 30px; height: 30px; display: block;" />
+                                    </div>
+                                    <div title="LaTeX" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/Latex.jpg" alt="LaTeX" style="width: 24px; height: 24px; display: block;" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Colonne 2 : Systèmes -->
+                            <div class="col-4 col-12-small">
+                                <h4 data-fr="Systèmes & Gestion" data-en="Systems & Management">Systèmes & Gestion</h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                                    <div title="Windows" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/windows.png" alt="Windows" style="width: 30px; height: 30px; display: block;" />
+                                    </div>
+                                    <div title="Linux" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/linux.jpg" alt="Linux" style="width: 24px; height: 24px; display: block;" />
+                                    </div>
+                                    <div title="Git" style="background: #ffffff; border: 2px solid #ccc; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                                        <img src="images/icons/git.png" alt="Git" style="width: 24px; height: 24px; display: block;" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Colonne 3 : Soft Skills -->
+                            <div class="col-4 col-12-small">
+                                <h4 data-fr="Qualités Personnelles" data-en="Soft Skills">Qualités Personnelles</h4>
+                                <ul>
+                                    <li data-fr="Travail en équipe" data-en="Teamwork">Travail en équipe</li>
+                                    <li data-fr="Gestion de projet" data-en="Project Management">Gestion de projet</li>
+                                    <li data-fr="Créativité" data-en="Creativity">Créativité</li>
+                                    <li data-fr="Résolution de problèmes" data-en="Problem Solving">Résolution de problèmes</li>
+                                    <li data-fr="Adaptabilité" data-en="Adaptability">Adaptabilité</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                <!-- 4. Réalisations & Projets -->
+                    <section id="projects">
+                        <h2 data-fr="Réalisations & Projets" data-en="Projects & Works">Réalisations & Projets</h2>
+                        <p data-fr="Aperçu de mes projets techniques, de développement et de conception." data-en="Overview of my technical, development and design projects.">Aperçu de mes projets techniques, de développement et de conception.</p>
+                        <div class="row">
+                            <!-- Projet 1 -->
+                            <article class="col-6 col-12-xsmall work-item">
+                                <div class="project-carousel">
+                                    <div class="carousel-images" data-index="0">
+                                        <img src="images/fulls/arcade1.jpeg" alt="Projet 1 - Image 1" />
+                                        <img src="images/fulls/arcade2.jpeg" alt="Projet 1 - Image 2" />
+                                    </div>
+                                    <button class="carousel-btn carousel-prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                                    <button class="carousel-btn carousel-next" onclick="moveSlide(this, 1)">&#10095;</button>
+                                </div>
+                                <h3 data-fr="Réalisation d'une borne d'arcade" data-en="Building an Arcade Cabinet">Réalisation d'une borne d'arcade</h3>
+                                <p data-fr="Conception et réalisation de A à Z d'une borne d'arcade fonctionnelle permettant d'émuler de nombreuses consoles. La borne d'arcade tourne sur un ancien pc de récupération avec comme système d'exploitation Recalbox." data-en="End-to-end design and creation of a functional arcade cabinet capable of emulating numerous consoles. The arcade cabinet runs on an old recycled PC using the Recalbox operating system.">Conception et réalisation de A à Z d'une borne d'arcade fonctionnelle permettant d'émuler de nombreuses consoles. La borne d'arcade tourne sur un ancien pc de récupération avec comme système d'exploitation Recalbox.</p>
+                                <ul class="actions">
+                                    <li><a href="projet1.html" class="button" data-fr="En savoir plus" data-en="Learn more">En savoir plus</a></li>
+                                </ul>
+                            </article>
+
+                            <!-- Projet 2 -->
+                            <article class="col-6 col-12-xsmall work-item">
+                                <div class="project-carousel">
+                                    <div class="carousel-images" data-index="0">
+                                        <img src="images/fulls/drone1.jpeg" alt="Projet Drone - Image 1" />
+                                        <img src="images/fulls/drone2.jpeg" alt="Projet Drone - Image 2" />
+                                    </div>
+                                    <button class="carousel-btn carousel-prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                                    <button class="carousel-btn carousel-next" onclick="moveSlide(this, 1)">&#10095;</button>
+                                </div>
+                                <h3 data-fr="Construction d'un drone FPV" data-en="Building an FPV Drone">Construction d'un drone FPV</h3>
+                                <p data-fr="J'ai réalisé un drone FPV (First Person View) à l'aide de pièces détachés achetés séparément en ligne. Le tout a été monté et ajuster par moi même, cela impliquant notamment de la soudure et des réglages logiciel. Au final, le drone vol parfaitement et peut atteindre jusqu'à 90 km/h." data-en="I built an FPV (First Person View) drone using separate parts purchased online. Everything was assembled and tuned by myself, involving soldering and software adjustments. Ultimately, the drone flies perfectly and can reach up to 90 km/h.">J'ai réalisé un drone FPV (First Person View) à l'aide de pièces détachés achetés séparément en ligne. Le tout a été monté et ajuster par moi même, cela impliquant notamment de la soudure et des réglages logiciel. Au final, le drone vol parfaitement et peut atteindre jusqu'à 90 km/h. </p>
+                                <ul class="actions">
+                                    <li><a href="projet2.html" class="button" data-fr="En savoir plus" data-en="Learn more">En savoir plus</a></li>
+                                </ul>
+                            </article>
+                        </div>
+                    </section>
+
+                <!-- 5. Mobilité Internationale -->
+                    <section id="mobility" style="margin-bottom: 3em;">
+                        <h2 data-fr="Mobilité Internationale" data-en="International Mobility">Mobilité Internationale</h2>
+                        <p data-fr="Ouverture culturelle, projets internationaux et maîtrise des langues." data-en="Cultural openness, international projects, and language proficiency.">Ouverture culturelle, projets internationaux et maîtrise des langues.</p>
+                        <ul>
+                            <li style="margin-bottom: 1.5em;"><strong data-fr="PCE (Projet de Mobilité / Cours) :" data-en="PCE (Mobility Project / Course):">PCE (Projet de Mobilité / Cours) :</strong> <span data-fr="Dans le cadre de mon cursus d'ingénieur en sciences du numérique à l'ENSEEIHT, je prépare une expérience de mobilité internationale axée sur l'immersion technologique et culturelle en Chine. Cette démarche vise à confronter mes compétences à un écosystème d'innovation de premier plan et à élargir ma vision des projets industriels mondiaux." data-en="As part of my digital sciences engineering curriculum at ENSEEIHT, I am preparing an international mobility experience focused on technological and cultural immersion in China. This approach aims to challenge my skills against a leading innovation ecosystem and broaden my vision of global industrial projects.">Dans le cadre de mon cursus d'ingénieur en sciences du numérique à l'ENSEEIHT, je prépare une expérience de mobilité internationale axée sur l'immersion technologique et culturelle en Chine. Cette démarche vise à confronter mes compétences à un écosystème d'innovation de premier plan et à élargir ma vision des projets industriels mondiaux.</span></li>
+                            <li><strong data-fr="Langues & Compétences Linguistiques :" data-en="Languages & Linguistic Skills:">Langues & Compétences Linguistiques :</strong>
+                                <ul style="margin-top: 0.5em; list-style-type: circle;">
+                                    <li><strong>Français :</strong> <span data-fr="Langue maternelle" data-en="Native language">Langue maternelle</span></li>
+                                    <li><strong>Anglais :</strong> <span data-fr="Niveau B2 (maîtrise technique et professionnelle)" data-en="B2 Level (technical and professional proficiency)">Niveau B2 (maîtrise technique et professionnelle)</span></li>
+                                    <li><strong>Chinois :</strong> <span data-fr="En cours d'apprentissage à l'ENSEEIHT (objectif d'acquisition B1)" data-en="Currently learning at ENSEEIHT (B1 target)">En cours d'apprentissage à l'ENSEEIHT (objectif d'acquisition B1)</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+               <!-- 6. Engagement & Éco-responsabilité -->
+                    <section id="sustainability">
+                        <h2 data-fr="Engagement & Éco-responsabilité" data-en="Sustainability & Civic Engagement">Engagement & Éco-responsabilité</h2>
+                        <p data-fr="Implication associative, vie étudiante et sensibilisation aux enjeux durables." data-en="Association involvement, student life, and awareness of sustainable issues.">Implication associative, vie étudiante et sensibilisation aux enjeux durables.</p>
+                        <ul>
+                            <li style="margin-bottom: 0.8em;">
+                                <strong>7Robot :</strong> <span data-fr="Membre actif de l'association de robotique de l'ENSEEIHT, avec pour objectif la participation à la Coupe de France de Robotique." data-en="Active member of ENSEEIHT's robotics association, aiming to participate in the French Robotics Cup.">Membre actif de l'association de robotique de l'ENSEEIHT, avec pour objectif la participation à la Coupe de France de Robotique.</span>
+                            </li>
+                            <li style="margin-bottom: 0.8em;">
+                                <strong>TVN7 :</strong> <span data-fr="Implication au sein de l'association vidéo de l'école, dédiée à la réalisation, au montage et au suivi audiovisuel des événements de l'ENSEEIHT." data-en="Involvement in the school's video association, dedicated to the production, editing, and audiovisual coverage of ENSEEIHT events.">Implication au sein de l'association vidéo de l'école, dédiée à la réalisation, au montage et au suivi audiovisuel des événements de l'ENSEEIHT.</span>
+                            </li>
+                            <li style="margin-bottom: 0.8em;">
+                                <strong>Fresque du Climat :</strong> <span data-fr="Dès la première année de mon cycle ingénieur, j'ai eu l'occasion de réaliser une fresque du climat, en collaboration avec d'autres élèves de l'ENSEEIHT. Cela nous a permis de prendre conscience des enjeux climatiques de notre époque et des défis que nous aurons à relever en tant que futurs ingénieurs." data-en="From the first year of my engineering cycle, I had the opportunity to run a Climate Fresk workshop in collaboration with other ENSEEIHT students. This allowed us to become aware of the climate challenges of our time and the challenges we will have to face as future engineers.">Dès la première année de mon cycle ingénieur, j'ai eu l'occasion de réaliser une fresque du climat, en collaboration avec d'autres élèves de l'ENSEEIHT. Cela nous a permis de prendre conscience des enjeux climatiques de notre époque et des défis que nous aurons à relever en tant que futurs ingénieurs.</span>
+                            </li>
+                            <li style="margin-bottom: 0.8em;">
+                                <strong>Festival « Futur Proche » :</strong> <span data-fr="L'ENSEEIHT ainsi que les différentes universités de Toulouse m'ont permis de participer au festival « Futur Proche », regroupant de nombreuses conférences, ateliers et présentations sensibilisant sur les enjeux climatiques, notamment du point de vue scientifique à travers les différentes innovations apportées ou en cours de développement." data-en="ENSEEIHT and the various universities of Toulouse allowed me to participate in the 'Futur Proche' festival, bringing together numerous conferences, workshops, and presentations raising awareness on climate issues, especially from a scientific perspective through various innovations developed or in progress.">L'ENSEEIHT ainsi que les différentes universités de Toulouse m'ont permis de participer au festival « Futur Proche », regroupant de nombreuses conférences, ateliers et présentations sensibilisant sur les enjeux climatiques, notamment du point de vue scientifique à travers les différentes innovations apportées ou en cours de développement.</span>
+                            </li>
+                            <li style="margin-bottom: 0.8em;">
+                                <strong>Procès de King Kong :</strong> <span data-fr="Également en première année d'école d'ingénieur, j'ai pu assister et participer à la pièce de théâtre interactive « Le procès de King Kong » portant sur les violences sexistes et sexuelles (VSS) et leurs conséquences." data-en="Also in my first year of engineering school, I was able to attend and participate in the interactive play 'The Trial of King Kong' focusing on sexist and sexual violence (SSV) and their consequences.">Également en première année d'école d'ingénieur, j'ai pu assister et participer à la pièce de théâtre interactive « Le procès de King Kong » portant sur les violences sexistes et sexuelles (VSS) et leurs conséquences.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                <!-- 7. Sport & Activités -->
+                    <section id="sports">
+                        <h2 data-fr="Sport & Activités" data-en="Sports & Activities">Sport & Activités</h2>
+                        <ul>
+                            <li style="margin-bottom: 0.8em;">
+                                <strong data-fr="Musculation :" data-en="Weightlifting:">Musculation :</strong> <span data-fr="Pratique soutenue à raison de 5 séances par semaine en salle." data-en="Sustained practice of 5 sessions per week at the gym.">Pratique soutenue à raison de 5 séances par semaine en salle.</span>
+                            </li>
+                            <li style="margin-bottom: 0.8em;">
+                                <strong data-fr="Badminton :" data-en="Badminton:">Badminton :</strong> <span data-fr="Cours hebdomadaires le jeudis soir à l'association sportive Toulouse INP." data-en="Weekly classes on Thursday evenings at the Toulouse INP sports association.">Cours hebdomadaires le jeudis soir à l'association sportive Toulouse INP.</span>
+                            </li>
+                            <li style="margin-bottom: 0.8em;">
+                                <strong data-fr="Course à pied :" data-en="Running:">Course à pied :</strong> <span data-fr="Sessions de course prévues le dimanche pour compléter la préparation physique." data-en="Running sessions scheduled on Sundays to complement physical preparation.">Sessions de course prévues le dimanche pour compléter la préparation physique.</span>
+                            </li>
+                            <li>
+                                <strong data-fr="Loisirs :" data-en="Hobbies:">Loisirs :</strong> <span data-fr="Amateur de cinéma." data-en="Cinema enthusiast.">Amateur de cinéma.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                <!-- 8. Projet Professionnel -->
+                    <section id="career">
+                        <h2 data-fr="Projet Professionnel" data-en="Career Development">Projet Professionnel</h2>
+                        <h3 data-fr="Stages & Expériences" data-en="Internships & Experiences">Stages & Expériences</h3>
+                        <ul>
+                            <li><strong data-fr="Stages à Enedis :" data-en="Internships at Enedis:">Stages à Enedis :</strong> <span data-fr="En seconde, j'ai dû effectuer un stage de 2 semaines chez Enedis. J'y ai découvert tous leurs secteurs d'activité ainsi que tous les métiers." data-en="In tenth grade, I completed a 2-week internship at Enedis. I discovered all their activity sectors and professions there.">En seconde, j'ai dû effectuer un stage de 2 semaines chez Enedis. J'y ai découvert tous leurs secteurs d'activité ainsi que tous les métiers.</span></li>
+                            <li><strong data-fr="Job d'été (2023) :" data-en="Summer Job (2023):">Job d'été (2023) :</strong> <span data-fr="J'ai travaillé comme cabinier pendant un mois à la piscine Aquacap (Périgueux). Je m'occupais de l'entretien et de la maintenance de l'ensemble des installations de la piscine tout au long de la journée." data-en="I worked as a pool attendant for a month at the Aquacap swimming pool (Périgueux). I was in charge of cleaning and maintaining all pool facilities throughout the day.">J'ai travaillé comme cabinier pendant un mois à la piscine Aquacap (Périgueux). Je m'occupais de l'entretien et de la maintenance de l'ensemble des installations de la piscine tout au long de la journée.</span></li>
+                            <li><strong data-fr="Job d'été (2024) :" data-en="Summer Job (2024):">Job d'été (2024) :</strong> <span data-fr="J'ai de nouveau exercé comme cabinier durant 3 semaines dans une piscine à Sorges (en Dordogne). Je m'occupais de l'entretien mais aussi de la caisse, ce qui m'a permis d'être en contact direct avec les clients tout au long de la journée." data-en="I worked again as a pool attendant for 3 weeks in a swimming pool in Sorges (Dordogne). I handled maintenance as well as the cash register, which allowed me to be in direct contact with customers all day long.">J'ai de nouveau exercé comme cabinier durant 3 semaines dans une piscine à Sorges (en Dordogne). Je m'occupais de l'entretien mais aussi de la caisse, ce qui m'a permis d'être en contact direct avec les clients tout au long de la journée.</span></li>
+                        </ul>
+                    </section>
+
+                <!-- 9. CV / Téléchargement -->
+                    <section id="cv">
+                        <h2 data-fr="Mon CV" data-en="My Resume">Mon CV</h2>
+                        <p data-fr="Vous souhaitez consulter le détail complet de mon parcours, de mes expériences et de mes compétences ? Vous pouvez télécharger mon CV ci-dessous :" data-en="Would you like to view the complete details of my background, experiences, and skills? You can download my resume below:">Vous souhaitez consulter le détail complet de mon parcours, de mes expériences et de mes compétences ? Vous pouvez télécharger mon CV ci-dessous :</p>
+                        <ul class="actions">
+                            <li><a href="assets/CVfr.pdf" class="button icon solid fa-download" download data-fr="Télécharger mon CV (PDF)" data-en="Download my resume (PDF)">Télécharger mon CV (PDF)</a></li>
+                        </ul>
+                    </section>
+
+                <!-- 10. Contact -->
+                    <section id="contact">
+                        <h2 data-fr="Me Contacter" data-en="Get In Touch">Me Contacter</h2>
+                        <p data-fr="Vous souhaitez échanger sur mon parcours ou me contacter pour une opportunité ? Retrouvez mes coordonnées ci-dessous :" data-en="Would you like to discuss my background or contact me for an opportunity? Find my contact details below:">Vous souhaitez échanger sur mon parcours ou me contacter pour une opportunité ? Retrouvez mes coordonnées ci-dessous :</p>
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="labeled-icons">
+                                    <li>
+                                        <h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+                                        <a href="mailto:tomguichardpro@gmail.com">tomguichardpro@gmail.com</a>
+                                    </li>
+                                    <li>
+                                        <h3 class="icon brands fa-linkedin"><span class="label">LinkedIn</span></h3>
+                                        <a href="https://www.linkedin.com/in/tom-guichard-b8872643a" target="_blank">linkedin.com/in/tom-guichard</a>
+                                    </li>
+                                    <li>
+                                        <h3 class="icon solid fa-phone"><span class="label" data-fr="Téléphone" data-en="Phone">Téléphone</span></h3>
+                                        <a href="tel:+33783240560">+33 7 83 24 05 60</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.poptrox.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+            <!-- Script JavaScript pour faire fonctionner les carrousels de projets -->
+            <script>
+                function moveSlide(button, direction) {
+                    const carousel = button.closest('.project-carousel');
+                    const inner = carousel.querySelector('.carousel-images');
+                    const totalImages = inner.children.length;
+                    let index = parseInt(inner.dataset.index || 0);
+                    
+                    index = (index + direction + totalImages) % totalImages;
+                    inner.dataset.index = index;
+                    inner.style.transform = `translateX(-${index * 100}%)`;
+                }
+
+                // Script de traduction dynamique FR <-> EN (sans drapeaux)
+                let currentLang = 'fr';
+                function toggleLanguage() {
+                    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+                    const btn = document.getElementById('lang-toggle');
+                    
+                    if (currentLang === 'en') {
+                        btn.innerHTML = 'Français';
+                        document.documentElement.lang = 'en';
+                    } else {
+                        btn.innerHTML = 'English';
+                        document.documentElement.lang = 'fr';
+                    }
+
+                    // Traduction de tous les éléments possédant data-fr et data-en
+                    const elements = document.querySelectorAll('[data-fr][data-en]');
+                    elements.forEach(el => {
+                        el.innerHTML = el.getAttribute(`data-${currentLang}`);
+                    });
+                }
+            </script>
+
+    </body>
+</html>
